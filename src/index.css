@@ -1,0 +1,275 @@
+
+:root {
+  font-family: Inter, Segoe UI, Helvetica, Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #dbe5ff;
+  background: #050915;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: radial-gradient(circle at 10% 10%, #1a2342 0, #050915 55%);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+.app-shell {
+  position: relative;
+  min-height: 100vh;
+  padding: 2rem 2rem 3rem;
+  overflow: hidden;
+}
+
+.ambient {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 999px;
+  filter: blur(90px);
+  opacity: 0.4;
+  z-index: 0;
+}
+
+.ambient-left {
+  top: -80px;
+  left: -80px;
+  background: #6b63ff;
+}
+
+.ambient-right {
+  bottom: -100px;
+  right: -60px;
+  background: #2ed4c6;
+}
+
+.topbar,
+.dashboard-grid {
+  position: relative;
+  z-index: 1;
+}
+
+.topbar {
+  max-width: 1200px;
+  margin: 0 auto 1.5rem;
+}
+
+.eyebrow {
+  color: #8ea0c8;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+h1 {
+  font-size: clamp(1.7rem, 2.4vw, 2.3rem);
+  font-weight: 650;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #aebbe0;
+  max-width: 760px;
+}
+
+.dashboard-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+}
+
+.panel {
+  border: 1px solid #1f2a42;
+  background: linear-gradient(180deg, #0c1324 0%, #0a1020 100%);
+  border-radius: 16px;
+  padding: 1rem 1.1rem;
+  box-shadow: 0 14px 40px rgba(3, 7, 16, 0.38);
+}
+
+.upload-panel {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.upload-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.file-picker {
+  border: 1px solid #334b8f;
+  border-radius: 10px;
+  color: #dbe5ff;
+  background: linear-gradient(135deg, #324ea7 0%, #5d74cc 100%);
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  position: relative;
+}
+
+.file-picker input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.ghost-button {
+  border: 1px solid #2f3f64;
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  background: #121a2f;
+  color: #dbe5ff;
+  cursor: pointer;
+}
+
+.source-note {
+  font-size: 0.87rem;
+  color: #8ea0c8;
+}
+
+.muted {
+  color: #8ea0c8;
+  font-size: 0.92rem;
+}
+
+.error {
+  color: #ff9ab0;
+}
+
+.metric-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.metric-card {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.metric-card p {
+  color: #8ea0c8;
+  font-size: 0.84rem;
+}
+
+.metric-card h3 {
+  font-size: 1.7rem;
+  font-weight: 640;
+}
+
+.chart-panel {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.chart-wrap {
+  width: 100%;
+  height: 300px;
+}
+
+.two-col-charts {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.compact .chart-wrap {
+  height: 260px;
+}
+
+.alert-list {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.alert-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  border: 1px solid #1f2d4a;
+  border-radius: 12px;
+  background: #10192e;
+  padding: 0.8rem;
+}
+
+.alert-primary {
+  font-size: 0.97rem;
+  margin-bottom: 0.2rem;
+}
+
+.badge {
+  min-width: 52px;
+  text-align: center;
+  border-radius: 999px;
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+  color: #071022;
+}
+
+.badge.low {
+  background: #7b9bff;
+}
+
+.badge.medium {
+  background: #ffac39;
+}
+
+.badge.high {
+  background: #ff5b78;
+}
+
+.model-panel {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.model-panel ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.3rem;
+  color: #c9d6f8;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2.2rem 1rem;
+  display: grid;
+  gap: 0.8rem;
+}
+
+@media (max-width: 900px) {
+  .metric-row,
+  .two-col-charts {
+    grid-template-columns: 1fr;
+  }
+
+  .section-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
