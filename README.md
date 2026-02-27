@@ -1,68 +1,89 @@
-# Sentinel — Identity Theft Detection
+# 🔐 SentinelAI  
+**Behavior-Based Identity Theft Detection System**
 
-> Hackathon Challenge #9 · Domain: Digital Fraud & Security Tools
+---
 
-Enterprise-grade web dashboard for anomaly-based identity theft detection from login activity datasets. Built with React 19, TypeScript, Vite, and Recharts. UI inspired by Palantir Foundry's operational intelligence platforms.
+## 🚀 Project Overview
 
-## Pages
+SentinelAI is a web-based analytics platform that detects suspicious login behavior and identity theft using behavioral anomaly detection.  
+It empowers organizations to identify high-risk login events before damage occurs by analyzing patterns in login metadata such as location, device, time, and frequency. :contentReference[oaicite:1]{index=1}
 
-| Route | Purpose |
-|-------------|-----------------------------------------------|
-| `/` | Landing page — project overview & feature cards |
-| `/dashboard`| Analytics dashboard — CSV upload, KPIs, 6 charts |
-| `/alerts` | Alert center — severity-filtered risk alerts |
-| `/model` | Model logic — detection methodology & scoring weights |
+This repository contains the frontend dashboard built in **React, TypeScript, and Vite** with visualizations, anomaly alerts, and risk scoring.
 
-## Features
+---
 
-- **CSV Dataset Ingestion** — drag-and-drop or file-browse with flexible column aliases.
-- **Anomaly Detection Model** — weighted multi-signal scoring engine (6 behavioral features).
-- **Risk Alert Generation** — severity classification (`low`, `medium`, `high`) with ranked alerts.
-- **Behavior Trend Visualization** — interactive area / line / bar / pie charts.
-- **Premium Dark UI** — glass morphism panels, grid overlays, ambient glow, sidebar navigation.
-- **Code-Split Routes** — lazy-loaded pages for optimal bundle performance.
+## 📊 Key Features
 
-## Detection Logic
+✔ Drag-and-Drop CSV Ingestion  
+✔ Multi-Signal Anomaly Detection  
+✔ Risk Scoring Engine (0–100 scale)  
+✔ Interactive Behavior Visualizations  
+✔ Filterable Alerts Dashboard  
+✔ Premium Dark UI with Sidebar Navigation  
+✔ CSV Column Aliases Supported  
+✔ Demo Dataset Included  
 
-Each login is scored on a 0‑100 scale using weighted anomaly factors:
+---
 
-| Signal | Weight | Description |
-|---------------------|--------|----------------------------------------------|
-| Impossible Travel | 30 | Velocity between consecutive logins > 800 km/h |
-| New Location | 26 | Location not previously seen for that user |
-| New Device | 24 | Device not previously seen for that user |
-| Frequency Anomaly | 22 | Daily login count z-score > 1.5 |
-| Failed Login | 18 | Unsuccessful authentication attempt |
-| Off-Hours Activity | 15 | Login outside 06:00‑22:00 local time |
+## 🧠 Detection Logic (Explained Simply)
 
-Severity thresholds: **low** < 45 · **medium** 45‑69 · **high** ≥ 70
+Each login attempt is scored using weighted anomaly signals such as:
 
-## Required CSV Columns
+| Signal | Weight | Meaning |
+|--------|--------|---------|
+| Impossible Travel | 30 | Unphysical travel speed between logins |
+| New Location | 26 | Country/city not seen before for the user |
+| New Device | 24 | Device not previously seen |
+| Frequency Anomaly | 22 | Login rate outside expected patterns |
+| Failed Login | 18 | Unsuccessful attempt |
+| Off-hours Activity | 15 | Login outside usual hours |
 
-Minimum: `timestamp`, `userId`
+Thresholds:
+- **Low Risk:** < 45  
+- **Medium Risk:** 45–69  
+- **High Risk:** ≥ 70 :contentReference[oaicite:2]{index=2}
 
-Optional (recommended): `location`, `device`, `loginStatus`, `ipAddress`
+---
 
-Aliases are supported — e.g. `user` / `username` for `userId`, `time` / `datetime` for `timestamp`.
+## 🧩 Required CSV Columns
 
-## Run Locally
+Minimum:
+- `timestamp`  
+- `userId`
+
+Optional but recommended:
+- `location`
+- `device`
+- `loginStatus`
+- `ipAddress`
+
+Aliases supported:
+- `user`, `username` → `userId`  
+- `time`, `datetime` → `timestamp` :contentReference[oaicite:3]{index=3}
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React 19 + TypeScript + Vite  
+- **UI Visualizations:** Recharts  
+- **Routing:** React Router  
+- **CSV Parsing:** PapaParse  
+- **Theme:** Dark cybersecurity style  
+- **Build Tool:** Vite :contentReference[oaicite:4]{index=4}
+
+---
+
+## 🧪 Run Locally (Development)
 
 ```bash
+# 1. Clone the repository
+git clone https://github.com/Noyoucringe/SentinelAI.git
+
+cd SentinelAI
+
+# 2. Install dependencies
 npm install
+
+# 3. Run development server
 npm run dev
-```
-
-Production build:
-
-```bash
-npm run build
-npx serve dist   # or any static server
-```
-
-## Demo Dataset
-
-Click **Load Demo Dataset** on the Dashboard page to instantly ingest `public/sample-login-activity.csv` (75 rows, 7 users).
-
-## Tech Stack
-
-React 19 · TypeScript 5.9 · Vite 7 · Recharts · React Router · PapaParse
